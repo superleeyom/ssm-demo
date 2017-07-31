@@ -38,9 +38,30 @@
             <artifactId>ssm-pojo</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
     </dependencies>
+
     <build>
         <finalName>ssm-web</finalName>
+        <plugins>
+            <!--tomcat7插件-->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>${tomcat7-maven-plugin.version}</version>
+                <configuration>
+                    <!--项目访问路径，如果你设置为根路径，那么访问地址为: http://localhost:8080/ -->
+                    <!--如果你改为ssm，那么访问路径变为: http://localhost:8080/ssm/-->
+                    <path>${tomcat-path.version}</path>
+                    <!--tomcat访问端口-->
+                    <port>${tomcat-port.version}</port>
+                    <uriEncoding>${tomcat-uri-encoding.version}</uriEncoding>
+                    <!--tomcat管理界面路径，固定-->
+                    <url>http://localhost:8080/manager/html</url>
+                    <server>tomcat7</server>
+                    <username>admin</username>
+                    <password>admin</password>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>
