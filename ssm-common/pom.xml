@@ -10,6 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ssm-common</artifactId>
-
+    <packaging>jar</packaging>
 
 </project>

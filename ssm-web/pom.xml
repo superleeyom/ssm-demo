@@ -11,10 +11,12 @@
     <name>ssm-web Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
+
+        <!--junit单元测试，因为父级的pom中junit的scope为test，所以在其他的module要用junit使用单元测试要单独添加junit依赖-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>4.9</version>
             <scope>test</scope>
         </dependency>
 

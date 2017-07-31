@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ssm-dao</artifactId>
-
+    <packaging>jar</packaging>
     <dependencies>
         <!--添加 ssm-pojo module依赖-->
         <dependency>

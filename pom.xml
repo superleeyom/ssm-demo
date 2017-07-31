@@ -53,11 +53,11 @@
         <!--插件版本号-->
         <tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
         <maven-compiler-plugin.version>3.6.2</maven-compiler-plugin.version>
-        <!--其他版本号-->
+        <!--其他配置-->
         <jdk.version>1.7</jdk.version>
-        <tomcat-port.version>8080</tomcat-port.version>
+        <tomcat-port.version>8089</tomcat-port.version>
         <tomcat-uri-encoding.version>UTF-8</tomcat-uri-encoding.version>
-        <tomcat-path.version>/</tomcat-path.version>
+        <tomcat-path.version>/ssm-demo</tomcat-path.version>
     </properties>
     <dependencies>
         <!--spring核心包-->
