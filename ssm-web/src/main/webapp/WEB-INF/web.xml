@@ -9,7 +9,6 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring/spring-mybatis.xml</param-value>
     </context-param>
-
     <!-- 编码过滤器 -->
     <filter>
         <filter-name>encodingFilter</filter-name>

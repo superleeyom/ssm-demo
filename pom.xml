@@ -8,7 +8,7 @@
     <artifactId>ssm</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <!--子module-->
+    <!--聚合的子module-->
     <modules>
         <module>ssm-web</module>
         <module>ssm-service</module>
