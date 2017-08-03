@@ -64,9 +64,10 @@ ssm-demo
 ## Maven多模块项目创建
 1. 先创建一个空的maven项目(ssm-demo)作为父级项目，创建成功后，**<span style="color:red">删除掉src目录!</span>**。![](http://og1m51u2s.bkt.clouddn.com/15016006142785.jpg)![](http://og1m51u2s.bkt.clouddn.com/15016007759468.jpg)![](http://og1m51u2s.bkt.clouddn.com/15016009256846.jpg)
 
-2. 右击我们刚刚创建的父级项目**ssm-demo**，选择 `new --> Module`,创建`ssm-common`模块。![](http://og1m51u2s.bkt.clouddn.com/15016011837649.jpg)填写Artifactld![](http://og1m51u2s.bkt.clouddn.com/15016013559961.jpg)点击Finish，就可以建好`ssm-common`模块。![](http://og1m51u2s.bkt.clouddn.com/15016014089277.jpg)打开`ssm-common`下面的pom.xml文件，添加该模块的打包方式为jar:
+2. 右击我们刚刚创建的父级项目**ssm-demo**，选择 `new --> Module`,创建`ssm-common`模块。![](http://og1m51u2s.bkt.clouddn.com/15016011837649.jpg)填写Artifactld![](http://og1m51u2s.bkt.clouddn.com/15016013559961.jpg)点击Finish，就可以建好`ssm-common`模块。![](http://og1m51u2s.bkt.clouddn.com/15016014089277.jpg)
+打开`ssm-common`下面的pom.xml文件，添加该模块的打包方式为jar:
     
-    ```xml
+  ```xml
     <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
