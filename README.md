@@ -445,17 +445,19 @@ ssm-demo
 
 通过上面搭建maven好的maven多模块项目的骨架，现在就可以开始ssm项目的整合了，我的开发环境和所用的三大框架的版本如下：
 
-* 开发环境是：
- * IntelliJ IDEA 2017.1
- * JDK 1.8.0_45
- * Tomcat 7
- * Maven 3.3.9
- * MySQL 5.7.16  
-* 三大框架版本：
- * Spring 4.1.7.RELEASE
- * Spring MVC 4.1.7.RELEASE
- * MyBatis 3.3.0
-* 核心配置文件： 
+开发环境是：
+  - IntelliJ IDEA 2017.1
+  - JDK 1.8.0_45
+  - Tomcat 7
+  - Maven 3.3.9
+  - MySQL 5.7.16  
+
+三大框架版本：
+  - Spring 4.1.7.RELEASE
+  - Spring MVC 4.1.7.RELEASE
+  - MyBatis 3.3.0
+
+核心配置文件： 
 
 | 文件名 | 所属目录 | 描述 |
 | :-: | :-: | :-: |
