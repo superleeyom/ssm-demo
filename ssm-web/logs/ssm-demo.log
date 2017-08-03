@@ -88,4 +88,30 @@
   [INFO] [2017-08-01 22:20:06][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Tue Aug 01 22:20:05 CST 2017]; parent: Root WebApplicationContext
   [INFO] [2017-08-01 22:20:06][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Tue Aug 01 22:20:05 CST 2017]; parent: Root WebApplicationContext
   [INFO] [2017-08-01 22:20:06][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 1173 ms
+  [INFO] [2017-08-03 22:35:59][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@45c8e616: startup date [Thu Aug 03 22:35:59 CST 2017]; root of context hierarchy
+  [INFO] [2017-08-03 22:35:59][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+  [INFO] [2017-08-03 22:36:02][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-08-03 22:36:02][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-08-03 22:36:03][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+  [INFO] [2017-08-03 23:03:30][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6b2fad11: startup date [Thu Aug 03 23:03:30 CST 2017]; root of context hierarchy
+  [INFO] [2017-08-03 23:03:31][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+  [INFO] [2017-08-03 23:03:31][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-08-03 23:03:31][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-08-03 23:03:32][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+  [INFO] [2017-08-03 23:11:25][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+  [INFO] [2017-08-03 23:11:25][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Thu Aug 03 23:11:25 CST 2017]; root of context hierarchy
+  [INFO] [2017-08-03 23:11:26][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+  [INFO] [2017-08-03 23:11:26][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-08-03 23:11:26][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-08-03 23:11:27][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+  [INFO] [2017-08-03 23:11:28][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 2717 ms
+  [INFO] [2017-08-03 23:11:28][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+  [INFO] [2017-08-03 23:11:28][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Thu Aug 03 23:11:28 CST 2017]; parent: Root WebApplicationContext
+  [INFO] [2017-08-03 23:11:28][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-mvc.xml]
+  [INFO] [2017-08-03 23:11:28][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-08-03 23:11:29][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+  [INFO] [2017-08-03 23:11:29][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/getUserById],methods=[POST || GET]}" onto public java.lang.String com.leeyom.controller.user.UserHandler.getUserById(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-08-03 23:11:29][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Thu Aug 03 23:11:28 CST 2017]; parent: Root WebApplicationContext
+  [INFO] [2017-08-03 23:11:29][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]Looking for @ControllerAdvice: WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Thu Aug 03 23:11:28 CST 2017]; parent: Root WebApplicationContext
+  [INFO] [2017-08-03 23:11:29][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 1208 ms
   

@@ -8,7 +8,7 @@
     <artifactId>ssm</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <!--聚合的子module-->
+    <!--聚合的子module，父级的pom聚合他下面的所有的子模块，而子模块可以继承父级pom里面的依赖，这就是maven的聚合与继承-->
     <modules>
         <module>ssm-web</module>
         <module>ssm-service</module>
