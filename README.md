@@ -64,10 +64,15 @@ ssm-demo
 ## Maven多模块项目创建
 1. 先创建一个空的maven项目(ssm-demo)作为父级项目，创建成功后，**<span style="color:red">删除掉src目录!</span>**。![](http://og1m51u2s.bkt.clouddn.com/15016006142785.jpg)![](http://og1m51u2s.bkt.clouddn.com/15016007759468.jpg)![](http://og1m51u2s.bkt.clouddn.com/15016009256846.jpg)
 
-2. 右击我们刚刚创建的父级项目**ssm-demo**，选择 `new --> Module`,创建`ssm-common`模块。![](http://og1m51u2s.bkt.clouddn.com/15016011837649.jpg)填写Artifactld![](http://og1m51u2s.bkt.clouddn.com/15016013559961.jpg)点击Finish，就可以建好`ssm-common`模块。![](http://og1m51u2s.bkt.clouddn.com/15016014089277.jpg)
-打开`ssm-common`下面的pom.xml文件，添加该模块的打包方式为jar:
-    
-  ```xml
+2. 右击我们刚刚创建的父级项目**ssm-demo**，选择 `new --> Module`,创建`ssm-common`模块。
+ ![](http://og1m51u2s.bkt.clouddn.com/15016011837649.jpg)
+ 填写Artifactld
+ ![](http://og1m51u2s.bkt.clouddn.com/15016013559961.jpg)
+ 点击Finish，就可以建好`ssm-common`模块。
+ ![](http://og1m51u2s.bkt.clouddn.com/15016014089277.jpg)
+ 打开`ssm-common`下面的pom.xml文件，添加该模块的打包方式为jar:
+ 
+ ```xml
     <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -81,7 +86,7 @@ ssm-demo
     <artifactId>ssm-common</artifactId>
     <packaging>jar</packaging>
 </project>
-    ```
+```
 
 3. 同理，跟创建`ssm-common`模块一样，继续创建`ssm-pojo`、`ssm-service`、`ssm-dao`、`ssm-web`等相应的模块。但是我们需要注意的一点是：在我们的依赖模块关系图里，我们知道`ssm-web`模块的打包方式是war包，那我们需要将他的打包方式设置为war包，而不是jar了，为什么要设置成war呢？因为我们的war包最终是要放到tomcat web容器中跑的，你打包成jar怎么放web容器里面跑，是不是？同时`ssm-web`依赖`ssm-service`和`ssm-common`两个模块，我在这里就拿`ssm-web`模块的pom文件讲解下：
 
