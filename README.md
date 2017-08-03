@@ -1,15 +1,3 @@
----
-title: Maven的多模块 Spring MVC + Spring + Mybatis 项目的搭建
-date: 2017-08-01 20:48:51
-comments: true
-tags:  
-- maven
-- 多模块
-- ssm
-categories:
-- java
----
-
 我想大多数做java开发的同学对SSM框架的搭建已经都轻车熟路了，但是大家搭建的大多数是单模块的，网上也有非常多的例子，但是如何用maven去构建多module的ssm项目呢？下面来手把手的，利用IntelliJ IDEA搭建一次多module的ssm项目，给大家一个参考。
 
 <!-- more -->
