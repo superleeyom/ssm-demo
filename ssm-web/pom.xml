@@ -8,10 +8,18 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>ssm-web</artifactId>
     <packaging>war</packaging>
-    <name>ssm-web Maven Webapp</name>
+    <name>ssm-web</name>
     <url>http://maven.apache.org</url>
-    <dependencies>
 
+    <properties>
+        <!--编译级别-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+    </properties>
+
+    <dependencies>
         <!--junit单元测试，因为父级的pom中junit的scope为test，所以在其他的module要用junit使用单元测试要单独添加junit依赖-->
         <dependency>
             <groupId>junit</groupId>
@@ -20,37 +28,46 @@
             <scope>test</scope>
         </dependency>
 
-        <!--添加 ssm-common module依赖，因为有时候我们需要一些工具类去处理一些字符串啊，格式化json等等，所以依赖该模块-->
-        <dependency>
-            <groupId>com.leeyom.ssm</groupId>
-            <artifactId>ssm-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
         <!--添加 ssm-service module依赖，需要调用业务层处理业务-->
         <dependency>
             <groupId>com.leeyom.ssm</groupId>
             <artifactId>ssm-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
     </dependencies>
 
     <build>
-        <finalName>ssm-web</finalName>
+        <finalName>ssm</finalName>
         <plugins>
+            <!--编译插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <!--设置source和target版本，解决IDEA自动重置Language Level和JavaCompiler版本的问题-->
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <showWarnings>true</showWarnings>
+                    <!--如果lib目录下面有jar包，将lib目录已有的jar包打包进war-->
+                    <compilerArguments>
+                        <extdirs>src\main\webapp\WEB-INF\lib</extdirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+
             <!--tomcat7插件-->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>${tomcat7-maven-plugin.version}</version>
+                <version>2.2</version>
                 <configuration>
                     <!--项目访问路径，如果你设置为根路径，那么访问地址为: http://localhost:8080/ -->
                     <!--如果你改为ssm，那么访问路径变为: http://localhost:8080/ssm/-->
-                    <path>${tomcat-path.version}</path>
+                    <path>/ssm-demo</path>
                     <!--tomcat访问端口-->
-                    <port>${tomcat-port.version}</port>
-                    <uriEncoding>${tomcat-uri-encoding.version}</uriEncoding>
+                    <port>8080</port>
+                    <uriEncoding>UTF-8</uriEncoding>
                     <!--tomcat管理界面路径，固定-->
                     <url>http://localhost:8080/manager/html</url>
                     <server>tomcat7</server>

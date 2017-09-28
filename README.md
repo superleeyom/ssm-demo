@@ -81,6 +81,13 @@ ssm-demo
     <modelVersion>4.0.0</modelVersion>
     <artifactId>ssm-common</artifactId>
     <packaging>jar</packaging>
+    <properties>
+        <!--编译级别-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+    </properties>
 </project>
 ```
 
@@ -108,12 +115,6 @@ ssm-demo
             <version>4.9</version>
             <scope>test</scope>
         </dependency>
-        <!--添加 ssm-common module依赖，因为有时候我们需要一些工具类去处理一些字符串啊，格式化json等等，所以依赖该模块-->
-        <dependency>
-            <groupId>com.leeyom.ssm</groupId>
-            <artifactId>ssm-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <!--添加 ssm-service module依赖，需要调用业务层处理业务-->
         <dependency>
             <groupId>com.leeyom.ssm</groupId>
@@ -124,18 +125,35 @@ ssm-demo
     <build>
         <finalName>ssm-web</finalName>
         <plugins>
+            <!--编译插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <!--设置source和target版本，解决IDEA自动重置Language Level和JavaCompiler版本的问题-->
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <showWarnings>true</showWarnings>
+                    <!--如果lib目录下面有jar包，将lib目录已有的jar包打包进war-->
+                    <compilerArguments>
+                        <extdirs>src\main\webapp\WEB-INF\lib</extdirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+
             <!--tomcat7插件-->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>${tomcat7-maven-plugin.version}</version>
+                <version>2.2</version>
                 <configuration>
                     <!--项目访问路径，如果你设置为根路径，那么访问地址为: http://localhost:8080/ -->
                     <!--如果你改为ssm，那么访问路径变为: http://localhost:8080/ssm/-->
-                    <path>${tomcat-path.version}</path>
+                    <path>/ssm-demo</path>
                     <!--tomcat访问端口-->
-                    <port>${tomcat-port.version}</port>
-                    <uriEncoding>${tomcat-uri-encoding.version}</uriEncoding>
+                    <port>8080</port>
+                    <uriEncoding>UTF-8</uriEncoding>
                     <!--tomcat管理界面路径，固定-->
                     <url>http://localhost:8080/manager/html</url>
                     <server>tomcat7</server>
@@ -158,12 +176,12 @@ ssm-demo
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.leeyom.ssm</groupId>
     <artifactId>ssm</artifactId>
-    <!--父级项目的打包方式为pom，需要跟其子模块的打包方式区别开来-->
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <!--聚合所有的子module，父级的pom聚合他下面的所有的子模块，而子模块可以继承父级pom里面的依赖，这就是maven的聚合与继承-->
+    <!--聚合的子module，父级的pom聚合他下面的所有的子模块，而子模块可以继承父级pom里面的依赖，这就是maven的聚合与继承-->
     <modules>
         <module>ssm-web</module>
         <module>ssm-service</module>
@@ -171,49 +189,38 @@ ssm-demo
         <module>ssm-dao</module>
         <module>ssm-pojo</module>
     </modules>
-    <!--jar包版本控制-->
+
     <properties>
-        <!--spring版本号-->
+        <!--jar包版本控制-->
         <spring.version>4.1.7.RELEASE</spring.version>
-        <!--mybatis版本号-->
         <mybatis.version>3.3.0</mybatis.version>
-        <!--mybatis与spring集成版本号-->
         <mybatis-spring.version>1.2.3</mybatis-spring.version>
-        <!--mybatis分页插件版本号-->
         <pagehelper.version>4.1.4</pagehelper.version>
-        <!--junit单元测试版本号-->
         <junit.version>4.9</junit.version>
-        <!--mysql数据库连接驱动版本号-->
         <mysql-connector.version>5.1.37</mysql-connector.version>
-        <!--数据库连接池版本号-->
         <druid.version>1.1.2</druid.version>
-        <!-- log4j日志文件管理包版本号 -->
         <slf4j.version>1.7.7</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
-        <!--servlet相关版本号-->
         <javaee-api.version>7.0</javaee-api.version>
         <jstl.version>1.2</jstl.version>
         <jsp-api.version>2.3.1</jsp-api.version>
         <servlet-api.version>3.1.0</servlet-api.version>
-        <!--文件上传组件版本号-->
         <commons-fileupload.version>1.3.1</commons-fileupload.version>
         <commons-io.version>2.4</commons-io.version>
         <commons-codec.version>1.9</commons-codec.version>
-        <!--apache工具包-->
         <commons-lang3.version>3.3.2</commons-lang3.version>
-        <!--json格式化组件版本号-->
         <json-lib.version>2.4</json-lib.version>
         <fastjson.version>1.2.35</fastjson.version>
         <gson.version>2.2.4</gson.version>
-        <!--插件版本号-->
-        <tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
-        <maven-compiler-plugin.version>3.6.2</maven-compiler-plugin.version>
-        <!--其他配置-->
-        <jdk.version>1.7</jdk.version>
-        <tomcat-port.version>8089</tomcat-port.version>
-        <tomcat-uri-encoding.version>UTF-8</tomcat-uri-encoding.version>
-        <tomcat-path.version>/ssm-demo</tomcat-path.version>
+
+        <!--编译级别，如果不设置编译级别，IDEA 老是将 language level 重置-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
     </properties>
+
+    <!--父级 pom 主要管理公共依赖-->
     <dependencies>
         <!--spring核心包-->
         <dependency>
@@ -221,66 +228,79 @@ ssm-demo
             <artifactId>spring-core</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-oxm</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
         <!-- mybatis核心包 -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -293,6 +313,7 @@ ssm-demo
             <artifactId>mybatis-spring</artifactId>
             <version>${mybatis-spring.version}</version>
         </dependency>
+
         <!-- Mysql数据库链接jar包 -->
         <dependency>
             <groupId>mysql</groupId>
@@ -300,36 +321,42 @@ ssm-demo
             <version>${mysql-connector.version}</version>
             <scope>runtime</scope>
         </dependency>
+
         <!-- mybatis分页插件 -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
             <version>${pagehelper.version}</version>
         </dependency>
+
         <!--阿里巴巴德鲁伊数据库连接池-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>${druid.version}</version>
         </dependency>
+
         <!-- JSTL标签类 -->
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <version>${jstl.version}</version>
         </dependency>
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>${servlet-api.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>javax.servlet.jsp-api</artifactId>
             <version>${jsp-api.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <!-- java ee jar 包 -->
         <dependency>
             <groupId>javax</groupId>
@@ -337,6 +364,7 @@ ssm-demo
             <version>${javaee-api.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <!--单元测试-->
         <dependency>
             <groupId>junit</groupId>
@@ -344,6 +372,7 @@ ssm-demo
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
         <!--日志管理-->
         <dependency>
             <groupId>log4j</groupId>
@@ -356,11 +385,13 @@ ssm-demo
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
+
         <!-- json格式化组件 -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -373,11 +404,13 @@ ssm-demo
             <version>${json-lib.version}</version>
             <classifier>jdk15</classifier>
         </dependency>
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
+
         <!-- 上传组件包 -->
         <dependency>
             <groupId>commons-fileupload</groupId>
@@ -394,6 +427,7 @@ ssm-demo
             <artifactId>commons-codec</artifactId>
             <version>${commons-codec.version}</version>
         </dependency>
+
         <!--apache工具包-->
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -401,46 +435,6 @@ ssm-demo
             <version>${commons-lang3.version}</version>
         </dependency>
     </dependencies>
-    <build>
-        <finalName>ssm</finalName>
-        <plugins>
-            <!--编译插件-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <!--设置source和target版本，解决IDEA自动重置Language Level和JavaCompiler版本的问题-->
-                    <source>${jdk.version}</source>
-                    <target>${jdk.version}</target>
-                    <encoding>UTF-8</encoding>
-                    <showWarnings>true</showWarnings>
-                    <!--如果lib目录下面有jar包，将lib目录已有的jar包打包进war-->
-                    <compilerArguments>
-                        <extdirs>src\main\webapp\WEB-INF\lib</extdirs>
-                    </compilerArguments>
-                </configuration>
-            </plugin>
-            <!--tomcat7插件-->
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>${tomcat7-maven-plugin.version}</version>
-                <configuration>
-                    <!--项目访问路径，如果你设置为根路径，那么访问地址为: http://localhost:8080/ -->
-                    <!--如果你改为ssm，那么访问路径变为: http://localhost:8080/ssm/-->
-                    <path>${tomcat-path.version}</path>
-                    <!--tomcat访问端口-->
-                    <port>${tomcat-port.version}</port>
-                    <uriEncoding>${tomcat-uri-encoding.version}</uriEncoding>
-                    <!--tomcat管理界面路径，固定-->
-                    <url>http://localhost:8080/manager/html</url>
-                    <server>tomcat7</server>
-                    <username>admin</username>
-                    <password>admin</password>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>
  ```
 
@@ -549,6 +543,7 @@ jdbc.password=root
          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+    <tx:annotation-driven />
 </beans>
 ```
 

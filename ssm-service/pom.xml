@@ -11,6 +11,15 @@
 
     <artifactId>ssm-service</artifactId>
     <packaging>jar</packaging>
+
+    <properties>
+        <!--编译级别-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+    </properties>
+
     <dependencies>
         <!--添加 ssm-common module依赖-->
         <dependency>
