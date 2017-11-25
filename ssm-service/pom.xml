@@ -21,7 +21,7 @@
     </properties>
 
     <dependencies>
-        <!--添加 ssm-common module依赖-->
+        <!--添加 ssm-common module依赖，业务层可能需要用到一些工具类和公用的实体(分页实体封装)-->
         <dependency>
             <groupId>com.leeyom.ssm</groupId>
             <artifactId>ssm-common</artifactId>

@@ -162,7 +162,7 @@
             <version>${druid.version}</version>
         </dependency>
 
-        <!-- JSTL标签类 -->
+        <!-- jsp -->
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>

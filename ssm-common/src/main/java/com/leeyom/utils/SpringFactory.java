@@ -6,30 +6,30 @@ import org.springframework.beans.factory.BeanFactoryAware;
 
 /**
  * spring bean 工厂
- * @author lwang
- *
+ * @author Leeyom Wang
+ * @date 2017年10月19日 11:53
  */
 public class SpringFactory implements BeanFactoryAware {
 
-	private static BeanFactory beanFactory;
+    private static BeanFactory beanFactory;
 
-	@SuppressWarnings("static-access")
-	public void setBeanFactory(BeanFactory factory) throws BeansException {
-		this.beanFactory = factory;
-	}
+    @Override
+    public void setBeanFactory(BeanFactory factory) throws BeansException {
+        this.beanFactory = factory;
+    }
 
-	/**
-	 * description: 根据beanName名字取得bean
-	 * author: leeyom
-	 * company: leaderment.com
-	 * date: 2017年5月9日 下午3:11:04
-	 */
-	@SuppressWarnings("unchecked")
-	public static <T> T getBean(String beanName) {
-		if (null != beanFactory) {
-			return (T) beanFactory.getBean(beanName);
-		}
-		return null;
-	}
+
+    /**
+     * 根据beanName名字取得bean
+     * @param beanName 需要注入的bean的名字
+     * @param <T>      类型
+     * @return 需要注入实例
+     */
+    public static <T> T getBean(String beanName) {
+        if (null != beanFactory) {
+            return (T) beanFactory.getBean(beanName);
+        }
+        return null;
+    }
 
 }
