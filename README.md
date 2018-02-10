@@ -7,7 +7,7 @@
   <a href="#"><img src="https://img.shields.io/badge/language-java-blue.svg" alt=""></a>  
 </p>
 
-我想大多数做java开发的同学对SSM框架的搭建已经都轻车熟路了，但是大家搭建的大多数是单模块的，网上也有非常多的例子，但是如何用maven去构建多module的ssm项目呢？下面来手把手的，利用IntelliJ IDEA搭建一次多module的ssm项目，给大家一个参考。
+我想大多数做java开发的同学对SSM框架的搭建已经都轻车熟路了，但是大家搭建的大多数是单模块的，网上也有非常多的例子，但是如何用maven去构建多module的ssm项目呢？所以就利用IntelliJ IDEA搭建一个多module的ssm项目，给大家一个参考。
 
 ## 项目结构
 
