@@ -1,4 +1,4 @@
-package com.leeyom.controller.user;
+package com.leeyom.controller;
 
 import com.leeyom.pojo.User;
 import com.leeyom.service.user.UserService;
@@ -12,18 +12,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-public class UserHandler {
+public class UserController {
 
     @Autowired
     UserService userService;
 
     /**
-     * description: 测试 spring mvc
-     * author: leeyom
-     * date: 2017-07-31 10:47
-     * Copyright © 2017 by leeyom
+     * 测试 spring mvc
+     * @param request
+     * @param model
+     * @return
      */
-
     @RequestMapping(value = "/getUserById", method = {RequestMethod.POST, RequestMethod.GET})
     public String getUserById(HttpServletRequest request, Model model) {
         //参数

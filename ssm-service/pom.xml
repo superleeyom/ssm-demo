@@ -8,7 +8,6 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>ssm-service</artifactId>
     <packaging>jar</packaging>
 
@@ -21,7 +20,7 @@
     </properties>
 
     <dependencies>
-        <!--添加 ssm-common module依赖，业务层可能需要用到一些工具类和公用的实体(分页实体封装)-->
+        <!--添加 ssm-common module依赖-->
         <dependency>
             <groupId>com.leeyom.ssm</groupId>
             <artifactId>ssm-common</artifactId>
