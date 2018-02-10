@@ -1,4 +1,4 @@
-<p align="center"><img src="http://image.leeyom.top/blog/180210/73kb86kE1g.png"></p>
+<p align="center"><img width="50%" height="50%" src="http://image.leeyom.top/blog/180210/73kb86kE1g.png"></p>
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/devTool-IDEA-yellow.svg" alt=""></a>
   <a href="#"><img src="https://travis-ci.org/Alamofire/Alamofire.svg?branch=master" alt=""></a>
