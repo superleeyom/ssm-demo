@@ -20,12 +20,6 @@
     </properties>
 
     <dependencies>
-        <!--添加 ssm-common module依赖-->
-        <dependency>
-            <groupId>com.leeyom.ssm</groupId>
-            <artifactId>ssm-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <!--添加 ssm-dao module依赖-->
         <dependency>
             <groupId>com.leeyom.ssm</groupId>
