@@ -32,7 +32,7 @@ ssm-demo
 
 ## 模块依赖关系
 
-![](http://og1m51u2s.bkt.clouddn.com/15015988179183.jpg)
+![依赖关系](http://image.leeyom.top/20180211151831567174772.png)
 
 # 过程
 
